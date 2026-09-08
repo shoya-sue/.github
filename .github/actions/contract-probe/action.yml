@@ -1,0 +1,11 @@
+name: contract-probe
+description: 別 org の private リポジトリから public の composite action を呼べるかを測るだけの探り。
+runs:
+  using: composite
+  steps:
+    - name: probe
+      shell: bash
+      run: |
+        echo "PROBE_OK action_path=$GITHUB_ACTION_PATH"
+        ls -la "$GITHUB_ACTION_PATH"
+        python3 "$GITHUB_ACTION_PATH/probe.py"
